@@ -1,0 +1,32 @@
+description: LLM-based input validator prompt evaluations
+
+prompts:
+  - id: user-validator
+    raw: file://../prompts/validator.txt
+
+providers:
+  - google:gemini-2.5-flash
+
+tests:
+  # Test 1: Missing required name field
+  - vars:
+      input_json: |
+        {
+          "email": "aarav.patel@gmail.com",
+          "age": 16,
+          "country": "IN",
+          "phone": "+44976543210"
+        }
+    assert:
+      # Validation must fail
+      - type: contains
+        value: '"is_valid": false'
+
+      # Name is required
+      - type: contains
+        value: '"name is required"'
+
+      
+
+    
+
