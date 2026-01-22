@@ -22,7 +22,7 @@ No traditional validation libraries are used — the LLM is the **only validator
 
 ## Project Structure
 
-![Project Structure](screenshot\image.png)
+![Project Structure](screenshot/image.png)
 
 ---
 
